@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layouts/main-layout">
+    <head th:insert="01-fragment-head"></head>
+    <body>
+        <header th:insert="02-fragment-header" style="background-color: var(--headerBackground);"></header>
+        <main>
+            <div layout:fragment="mainContent">
+                <table class = 'table table-striped'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>DESCRIPTION</th>
+                            <th>YEAR</th>
+                            <th>RATING</th>
+                        </tr>
+                        <tbody>
+                            <!-- <tr th:each="film: ${films}">
+                                <td th:text="${film.id}"></td>
+                                <td th:text="${film.name}"></td>
+                                <td th:text="${film.description}"></td>
+                                <td th:text="${film.year}"></td>
+                                <td th:text="${film.rating}"></td>
+                            </tr> -->
+                        </tbody>
+                    </thead>
+                </table>
+                <form action="/add-film" method="post">
+                    <div>
+                        <label for="filmName">Name:</label>
+                        <input type="text" name="name" id="filmName" class="form-control">
+                    </div>
+                    <div>
+                        <label for="filmYear">Year:</label>
+                        <input type="number" name="year" id="filmYear" class="form-control">
+                    </div>
+                    <div>
+                        <label for="filmRating">Rating:</label>
+                        <input type="number" step="0.1" name="rating" id="filmRating" class="form-control">
+                    </div>
+                    <div>
+                        <label for="filmDescription">Description:</label>
+                        <textarea type="text" rows="5" name="description" id="filmDescription"
+                        class="form-control"></textarea>
+                    </div>
+                    <button type="submit">ADD FILM</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
