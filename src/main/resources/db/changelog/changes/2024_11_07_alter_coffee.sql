@@ -1,2 +1,0 @@
-ALTER TABLE coffee
-    ADD COLUMN image VARCHAR(500);

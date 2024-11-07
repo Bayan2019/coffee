@@ -29,4 +29,6 @@ public class Coffee {
     private String name;
     @Column(name="recipe")
     private String recipe;
+    @Column(name="image")
+    private String image;
 }
