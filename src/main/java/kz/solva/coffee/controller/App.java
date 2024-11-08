@@ -3,6 +3,7 @@ package kz.solva.coffee.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kz.solva.coffee.service.impl.CoffeeServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +12,9 @@ import lombok.RequiredArgsConstructor;
  * @author bayan
  */
 @Controller
+@RequestMapping("/app")
 @RequiredArgsConstructor
-public class Home {
+public class App {
 
     private final CoffeeServiceImpl coffeeService;
 

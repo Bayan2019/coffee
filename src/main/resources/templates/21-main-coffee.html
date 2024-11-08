@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="layouts/main-layout">
-    <head th:insert="01-fragment-head"></head>
+    <head th:insert="01-fragment-head.html"></head>
     <body>
-        <header th:insert="02-fragment-header" style="background-color: var(--headerBackground);"></header>
+        <header th:insert="02-fragment-header.html" style="background-color: var(--headerBackground);"></header>
         <main>
             <div layout:fragment="mainContent">
                 <table class = 'table'>
@@ -20,7 +20,7 @@
                                 <td th:text="${c.name}"></td>
                                 <td>
                                     <img th:src="@{${c.image}}" 
-                                    width= "250px" height="250px">
+                                    width= "200px">
                                 </td>
                                 <td th:text="${c.recipe}"></td>
                                 <td>
@@ -33,26 +33,48 @@
                         </tbody>
                     </thead>
                 </table>
-                <form action="/add-film" method="post">
-                    <div>
-                        <label for="filmName">Name:</label>
-                        <input type="text" name="name" id="filmName" class="form-control">
+                <button type="button" class="btn btn-primary" 
+                    data-bs-toggle="modal" data-bs-target="#add-coffee-form">
+                        + ADD COFFEE
+                </button>
+                <div class="modal" tabindex="-1" id="add-coffee-form">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">NEW COFFEE</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form th:action="@{'/add-coffee'}" method="post">
+                                <div class="modal-body">
+                                    <label for="coffeeName">NAME</label>
+                                    <input type="text" name="name" id="coffeeName" /> <br>
+                                    <label for="coffeeImage">IMAGE URL</label>
+                                    <input type="text" name="image" id="coffeeImage" /> <br>
+                                    <label for="coffeeRecipe">RECIPE:</label>
+                                    <textarea type="text" rows="5" name="recipe" id="coffeeRecipe"
+                                        class="form-control"></textarea>
+                                    <div>
+                                        <h4>INGRIDIENTS</h4>
+                                        <label for="coffeeBean">Coffee Beans in teaspoons:</label>
+                                        <input type="number" name="bean" id="coffeeBean" value="0"><br>
+                                        <label for="coffeeSugar">Sugar in teaspoons:</label>
+                                        <input type="number" id="coffeeSugar" value="0">
+                                        <label for="coffeeChocolate">Chocolate in cubes:</label>
+                                        <input type="number" name="chocolate" id="coffeeChocolate" value="0"><br>
+                                        <label for="coffeeWater">Hot water in ml:</label>
+                                        <input type="number" name="water" id="coffeeWater" value="0"><br>
+                                        <label for="coffeeMilk">Milk in ml :</label>
+                                        <input type="number" name="milk" id="coffeeMilk" value="0"><br>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                                    <button type="submit" class="btn btn-primary">ADD</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <label for="filmYear">Year:</label>
-                        <input type="number" name="year" id="filmYear" class="form-control">
-                    </div>
-                    <div>
-                        <label for="filmRating">Rating:</label>
-                        <input type="number" step="0.1" name="rating" id="filmRating" class="form-control">
-                    </div>
-                    <div>
-                        <label for="filmDescription">Description:</label>
-                        <textarea type="text" rows="5" name="description" id="filmDescription"
-                        class="form-control"></textarea>
-                    </div>
-                    <button type="submit">ADD FILM</button>
-                </form>
+                </div>
             </div>
         </main>
     </body>

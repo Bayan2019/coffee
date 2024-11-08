@@ -2,27 +2,27 @@ CREATE TABLE coffee(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) UNIQUE,
     recipe TEXT,
-    image VARCHAR(1000)
+    image VARCHAR(1000),
+    coffee_beans INT,
+    sugar INT,
+    chocolate INT,
+    water INT,
+    milk INT
 );
+
+ALTER TABLE coffee
+    ADD CONSTRAINT quantity0 CHECK (coffee_beans>=0 AND sugar>=0 AND chocolate>=0 AND water>=0 AND milk>=0);
 
 CREATE TABLE ingridients(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    quantity NUMERIC,
-    measure VARCHAR(255)
+    measure VARCHAR(255),
+    quantity INT,
+    image VARCHAR(1000)
 );
 
 ALTER TABLE ingridients
     ADD CONSTRAINT quantity0 CHECK (quantity>=0);
-
-CREATE TABLE recipes(
-    coffee_id INT REFERENCES coffee(id),
-    ingridient_id INT REFERENCES ingridients(id),
-    quantity NUMERIC
-);
-
-ALTER TABLE recipes
-    ADD CONSTRAINT quantity0 CHECK (quantity>0);
 
 CREATE TABLE orders(
     id BIGSERIAL PRIMARY KEY,
@@ -38,3 +38,6 @@ CREATE TABLE orders_coffee(
     coffee_id INT REFERENCES coffee(id),
     quantity INT
 );
+
+ALTER TABLE orders_coffee
+    ADD CONSTRAINT quantity0 CHECK (quantity>0);
