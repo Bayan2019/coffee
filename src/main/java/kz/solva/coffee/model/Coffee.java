@@ -31,4 +31,14 @@ public class Coffee {
     private String recipe;
     @Column(name="image")
     private String image;
+    @Column(name="coffee_beans")
+    private int beans;
+    @Column(name = "sugar")
+    private int sugar;
+    @Column(name = "chocolate")
+    private int chocolate;
+    @Column(name = "water")
+    private int water;
+    @Column(name = "milk")
+    private int milk;
 }

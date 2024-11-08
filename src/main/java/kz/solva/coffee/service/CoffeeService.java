@@ -12,4 +12,6 @@ import kz.solva.coffee.model.Coffee;
 @Service
 public interface CoffeeService {
     ArrayList<Coffee> getAllCoffees();
+    Coffee addCoffee(Coffee coffee);
+
 }

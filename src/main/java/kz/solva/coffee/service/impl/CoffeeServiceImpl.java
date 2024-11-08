@@ -23,4 +23,10 @@ public class CoffeeServiceImpl implements CoffeeService{
         return (ArrayList<Coffee>) coffeeRepository.findAll();
     }
 
+    @Override
+    public Coffee addCoffee(Coffee coffee) {
+        coffeeRepository.save(coffee);
+        return coffee;
+    }
+
 }

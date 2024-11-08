@@ -24,7 +24,7 @@
                                 </td>
                                 <td th:text="${c.recipe}"></td>
                                 <td>
-                                    <form th:action="@{'/add-order}" method="post">
+                                    <form th:action="@{'/app/add-order}" method="post">
                                         <input type="hidden" name="coffee_id" th:value="${c.id}">
                                         <button type="submit">ORDER</button>
                                     </form>
@@ -44,7 +44,7 @@
                                 <h5 class="modal-title">NEW COFFEE</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <form th:action="@{'/add-coffee'}" method="post">
+                            <form th:action="@{'/app/add-coffee'}" method="post">
                                 <div class="modal-body">
                                     <label for="coffeeName">NAME</label>
                                     <input type="text" name="name" id="coffeeName" /> <br>
@@ -56,15 +56,15 @@
                                     <div>
                                         <h4>INGRIDIENTS</h4>
                                         <label for="coffeeBean">Coffee Beans in teaspoons:</label>
-                                        <input type="number" name="bean" id="coffeeBean" value="0"><br>
+                                        <input type="number" name="beans" id="coffeeBean" th:value="0"><br>
                                         <label for="coffeeSugar">Sugar in teaspoons:</label>
-                                        <input type="number" id="coffeeSugar" value="0">
+                                        <input type="number" name="sugar" id="coffeeSugar" value="0">
                                         <label for="coffeeChocolate">Chocolate in cubes:</label>
-                                        <input type="number" name="chocolate" id="coffeeChocolate" value="0"><br>
+                                        <input type="number" name="chocolate" id="coffeeChocolate" th:value="0"><br>
                                         <label for="coffeeWater">Hot water in ml:</label>
-                                        <input type="number" name="water" id="coffeeWater" value="0"><br>
+                                        <input type="number" name="water" id="coffeeWater" th:value="0"><br>
                                         <label for="coffeeMilk">Milk in ml :</label>
-                                        <input type="number" name="milk" id="coffeeMilk" value="0"><br>
+                                        <input type="number" name="milk" id="coffeeMilk" th:value="0"><br>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
