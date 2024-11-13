@@ -22,9 +22,22 @@
         --buttonHover2: #4df698;
         --dangerZoneHover: #f12d41;
     }
-    /* header {
-        background-color: var(--headerBackground);
-    } */
+    body {
+        /* margin: auto; */
+        /* align-items: center; */
+        display: grid;
+    }
+    header {
+        /* background-color: var(--headerBackground); */
+        margin: auto;
+        width: 100%;
+    }
+
+    nav {
+        width: fit-content;
+        margin: auto;
+    }
+
     #headerSearch {
         background-color: var(--headerColor);
         color: var(--headerBackground);
@@ -35,6 +48,8 @@
     }
     main {
         padding: 0 12px 12px 12px;
+        margin-left: auto;
+        margin-right: auto;
     }
     main form {
         border: var(--fieldsetColor) solid;
@@ -83,6 +98,12 @@
         color: var(--bodyBackground);
         border: var(--fieldsetLegend) solid 3px;
     }
+    table {
+        width: fit-content;
+    }
+    table td {
+        width: fit-content;
+    }
     .nav-item form {
         padding: 0;
         margin: 0;
@@ -112,6 +133,8 @@
         border-radius: 2px;
         border: none;
     }
+
+
     .card-footer {
         background-color: #cee5f2;
         color: #6279b8;

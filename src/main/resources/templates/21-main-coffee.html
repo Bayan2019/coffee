@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="layouts/main-layout">
-    <head th:insert="01-fragment-head.html"></head>
+    <head th:insert="~{01-fragment-head}"></head>
     <body>
-        <header th:insert="02-fragment-header.html" style="background-color: var(--headerBackground);"></header>
+        <header th:insert="~{02-fragment-header}" style="background-color: var(--headerBackground);"></header>
         <main>
             <div layout:fragment="mainContent">
                 <table class = 'table'>
@@ -12,7 +12,7 @@
                         <tr>
                             <th>NAME</th>
                             <th>IMAGE</th>
-                            <th>RECIPE</th>
+                            <!-- <th>RECIPE</th> -->
                             <th></th>
                         </tr>
                         <tbody>
@@ -20,9 +20,9 @@
                                 <td th:text="${c.name}"></td>
                                 <td>
                                     <img th:src="@{${c.image}}" 
-                                    width= "200px">
+                                    width= "120px">
                                 </td>
-                                <td th:text="${c.recipe}"></td>
+                                <!-- <td th:text="${c.recipe}"></td> -->
                                 <td>
                                     <form th:action="@{'/app/add-order}" method="post">
                                         <input type="hidden" name="coffee_id" th:value="${c.id}">
