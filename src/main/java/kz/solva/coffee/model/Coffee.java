@@ -41,4 +41,6 @@ public class Coffee {
     private int water;
     @Column(name = "milk")
     private int milk;
+    @Column(name = "orders")
+    private long orders;
 }

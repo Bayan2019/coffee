@@ -25,12 +25,17 @@ public class CoffeeServiceImpl implements CoffeeService{
 
     @Override
     public Coffee addCoffee(Coffee coffee) {
-        coffeeRepository.save(coffee);
-        return coffee;
+        return coffeeRepository.save(coffee);
     }
 
     @Override
     public Coffee getById(int id) {
         return coffeeRepository.findById(id);
+    }
+
+    @Override
+    public Coffee updateCoffeeOrders(Coffee coffee) {
+        coffee.setOrders(coffee.getOrders()+1);
+        return coffeeRepository.save(coffee);
     }
 }

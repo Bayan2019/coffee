@@ -7,7 +7,8 @@ CREATE TABLE coffee(
     sugar INT,
     chocolate INT,
     milk INT,
-    water INT
+    water INT,
+    orders BIGINT DEFAULT 0
 );
 
 ALTER TABLE coffee

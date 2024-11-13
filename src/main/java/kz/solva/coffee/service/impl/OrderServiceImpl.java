@@ -55,6 +55,8 @@ public class OrderServiceImpl implements OrderService{
             return "not enough water";
         }
         
+        coffee = coffeeService.updateCoffeeOrders(coffee);
+
         Date currenDate = new Date();
         
         Order order = new Order();
