@@ -29,4 +29,8 @@ public class CoffeeServiceImpl implements CoffeeService{
         return coffee;
     }
 
+    @Override
+    public Coffee getById(int id) {
+        return coffeeRepository.findById(id);
+    }
 }

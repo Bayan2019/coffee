@@ -1,6 +1,10 @@
 package kz.solva.coffee.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +42,13 @@ public class Api {
     @GetMapping(value = "/ingridients/{name}")
     public Ingridient IngridientByName(@PathVariable String name) {
         return ingridientService.getIngridientByName(name);
+    }
+
+    @GetMapping(value = "/date")
+    public String DateApi() {
+        Date currentDate = new Date();
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(currentDate);
     }
         
 }

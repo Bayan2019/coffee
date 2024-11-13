@@ -60,9 +60,9 @@ public class App {
     }
 
     @PostMapping(value="/add-order")
-    public String addOrder(Model model) {
-        model.addAttribute("coffee", coffeeService.getAllCoffees());
-        return "21-main-coffee";
+    public String addOrder(@RequestParam int coffee_id) {
+        
+        return "redirect:/app/";
     }
 
 

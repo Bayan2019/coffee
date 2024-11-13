@@ -1,16 +1,17 @@
 package kz.solva.coffee.repository;
 
+import java.util.ArrayList;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import kz.solva.coffee.model.Coffee;
+import kz.solva.coffee.model.Order;
 
-/**
- * @author bayan
- */
 @Repository
 @Transactional
-public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {
-    Coffee findById(int id);
+public interface OrderRepository extends JpaRepository<Order, Long>{
+    
+    Order findById(long id);
+    // ArrayList<Order> findByCoffeeId(int coffee_id);
 }
