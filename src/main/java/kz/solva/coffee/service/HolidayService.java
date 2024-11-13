@@ -9,5 +9,8 @@ import kz.solva.coffee.model.Holiday;
 
 @Service
 public interface HolidayService {
-    List<Holiday> getHolidaysByYear(int year) throws IOException, InterruptedException;
+    List<Holiday> getHolidaysByYear(String year);
+    Boolean isTodayHoliday();
+    Boolean isNotTodayHoliday();
+    Boolean isDateHoliday(String date);
 }
