@@ -15,30 +15,22 @@ import lombok.Setter;
  * @author bayan
  */
 @Entity
-@Table(name="coffee")
+@Table(name="ingridients")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Coffee {
+public class Ingridient {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="recipe")
-    private String recipe;
-    @Column(name="image")
+    @Column(name = "measure")
+    private String measure;
+    @Column(name = "image")
     private String image;
-    @Column(name="beans")
-    private int beans;
-    @Column(name = "sugar")
-    private int sugar;
-    @Column(name = "chocolate")
-    private int chocolate;
-    @Column(name = "water")
-    private int water;
-    @Column(name = "milk")
-    private int milk;
+    @Column(name = "quantity")
+    private int quantity;
 }
