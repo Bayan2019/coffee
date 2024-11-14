@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kz.solva.coffee.model.Coffee;
 import kz.solva.coffee.service.impl.CoffeeServiceImpl;
+import kz.solva.coffee.service.impl.IngridientServiceImpl;
 import kz.solva.coffee.service.impl.OrderServiceImpl;
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +23,7 @@ public class App {
 
     private final CoffeeServiceImpl coffeeService;
     private final OrderServiceImpl orderService;
+    private final IngridientServiceImpl ingridientService;
 
     @GetMapping(value="/")
     public String mainPage(Model model) {
@@ -29,16 +31,16 @@ public class App {
         return "21-main-coffee";
     }
 
-    @GetMapping(value="/ingridients")
-    public String ingridientsPage(Model model) {
-        model.addAttribute("coffee", coffeeService.getAllCoffeesSortedDesc());
-        return "22-stats";
-    }
-
     @GetMapping(value="/stats")
     public String statsPage(Model model) {
         model.addAttribute("coffee", coffeeService.getAllCoffeesSortedDesc());
         return "22-stats";
+    }
+
+    @GetMapping(value="/ingridients")
+    public String ingridientsPage(Model model) {
+        model.addAttribute("ingridients", ingridientService.getAllIngridients());
+        return "23-ingridients";
     }
 
     @PostMapping(value="/add-coffee")
