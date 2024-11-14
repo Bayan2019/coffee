@@ -29,14 +29,14 @@ public class App {
 
     @GetMapping(value="/ingridients")
     public String ingridientsPage(Model model) {
-        model.addAttribute("coffee", coffeeService.getAllCoffees());
-        return "21-main-coffee";
+        model.addAttribute("coffee", coffeeService.getAllCoffeesSortedDesc());
+        return "22-stats";
     }
 
     @GetMapping(value="/stats")
     public String statsPage(Model model) {
-        model.addAttribute("coffee", coffeeService.getAllCoffees());
-        return "21-main-coffee";
+        model.addAttribute("coffee", coffeeService.getAllCoffeesSortedDesc());
+        return "22-stats";
     }
 
     @PostMapping(value="/add-coffee")

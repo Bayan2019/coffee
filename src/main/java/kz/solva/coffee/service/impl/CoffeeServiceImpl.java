@@ -38,4 +38,11 @@ public class CoffeeServiceImpl implements CoffeeService{
         coffee.setOrders(coffee.getOrders()+1);
         return coffeeRepository.save(coffee);
     }
+
+    @Override
+    public ArrayList<Coffee> getAllCoffeesSortedDesc() {
+        ArrayList<Coffee> coffees = getAllCoffees();
+        coffees.sort((a, b) -> a.getOrders()>=b.getOrders() ? -1 : 1);
+        return coffees;
+    }
 }

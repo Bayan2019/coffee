@@ -15,4 +15,5 @@ public interface CoffeeService {
     Coffee addCoffee(Coffee coffee);
     Coffee getById(int id);
     Coffee updateCoffeeOrders(Coffee coffee);
+    ArrayList<Coffee> getAllCoffeesSortedDesc();
 }
