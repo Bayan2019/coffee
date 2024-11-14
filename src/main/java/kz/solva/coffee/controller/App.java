@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kz.solva.coffee.model.Coffee;
 import kz.solva.coffee.service.impl.CoffeeServiceImpl;
+import kz.solva.coffee.service.impl.OrderServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class App {
 
     private final CoffeeServiceImpl coffeeService;
+    private final OrderServiceImpl orderService;
 
     @GetMapping(value="/")
     public String mainPage(Model model) {
@@ -60,9 +62,14 @@ public class App {
     }
 
     @PostMapping(value="/add-order")
-    public String addOrder(@RequestParam int coffee_id) {
-        
-        return "redirect:/app/";
+    public String addOrder(Model model, @RequestParam int coffee_id) {
+        String message = orderService.createOrder(coffee_id);
+        if (message.equals("created")) {
+            return "redirect:/app/stats";
+        }
+
+        model.addAttribute("message", message);
+        return "24-404";
     }
 
 

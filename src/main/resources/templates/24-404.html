@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layouts/main-layout">
+    <head th:insert="~{01-fragment-head}"></head>
+    <body>
+        <header th:insert="~{02-fragment-header}" style="background-color: var(--headerBackground);"></header>
+        <main>
+            <div layout:fragment="mainContent">
+                <h1 th:text="${message}" style="color:red;"></h1>
+            </div>
+        </main>
+    </body>
+</html>

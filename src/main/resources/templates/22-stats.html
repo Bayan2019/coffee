@@ -12,7 +12,6 @@
                         <tr>
                             <th>NAME</th>
                             <th>IMAGE</th>
-                            <!-- <th>RECIPE</th> -->
                             <th>TOTAL ORDERS</th>
                         </tr>
                         <tbody>
@@ -22,54 +21,11 @@
                                     <img th:src="@{${c.getImage()}}" 
                                     width= "120px">
                                 </td>
-                                <!-- <td th:text="${c.recipe}"></td> -->
                                 <td th:text="${c.getOrders()}"></td>
                             </tr>
                         </tbody>
                     </thead>
                 </table>
-                <button type="button" class="btn btn-primary" 
-                    data-bs-toggle="modal" data-bs-target="#add-coffee-form">
-                        + ADD COFFEE
-                </button>
-                <div class="modal" tabindex="-1" id="add-coffee-form">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">NEW COFFEE</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <form th:action="@{'/app/add-coffee'}" method="post">
-                                <div class="modal-body">
-                                    <label for="coffeeName">NAME</label>
-                                    <input type="text" name="name" id="coffeeName" /> <br>
-                                    <label for="coffeeImage">IMAGE URL</label>
-                                    <input type="text" name="image" id="coffeeImage" /> <br>
-                                    <label for="coffeeRecipe">RECIPE:</label>
-                                    <textarea type="text" rows="5" name="recipe" id="coffeeRecipe"
-                                        class="form-control"></textarea>
-                                    <div>
-                                        <h4>INGRIDIENTS</h4>
-                                        <label for="coffeeBean">Coffee Beans in teaspoons:</label>
-                                        <input type="number" name="beans" id="coffeeBeans" th:value="0"><br>
-                                        <label for="coffeeSugar">Sugar in teaspoons:</label>
-                                        <input type="number" name="sugar" id="coffeeSugar" value="0">
-                                        <label for="coffeeChocolate">Chocolate in cubes:</label>
-                                        <input type="number" name="chocolate" id="coffeeChocolate" th:value="0"><br>
-                                        <label for="coffeeWater">Hot water in ml:</label>
-                                        <input type="number" name="water" id="coffeeWater" th:value="0"><br>
-                                        <label for="coffeeMilk">Milk in ml :</label>
-                                        <input type="number" name="milk" id="coffeeMilk" th:value="0"><br>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                                    <button type="submit" class="btn btn-primary">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </main>
     </body>

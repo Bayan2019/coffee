@@ -56,6 +56,7 @@ public class OrderServiceImpl implements OrderService{
         }
         
         coffee = coffeeService.updateCoffeeOrders(coffee);
+        ingridientService.updateIngridientsByCoffee(coffee);
 
         Date currenDate = new Date();
         

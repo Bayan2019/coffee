@@ -24,7 +24,7 @@
                                 </td>
                                 <!-- <td th:text="${c.recipe}"></td> -->
                                 <td>
-                                    <form th:action="@{'/app/add-order}" method="post">
+                                    <form th:action="@{'/app/add-order'}" method="post">
                                         <input type="hidden" name="coffee_id" th:value="${c.id}">
                                         <button type="submit">ORDER</button>
                                     </form>
