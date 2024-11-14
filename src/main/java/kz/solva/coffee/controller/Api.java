@@ -38,12 +38,17 @@ public class Api {
     }
 
     @GetMapping(value = "/is-holiday/{date}")
-    public Boolean isDateHoliday(@PathVariable String date) {
+    public Boolean IsDateHoliday(@PathVariable String date) {
         return holidayService.isDateHoliday(date);
     }
 
+    @GetMapping(value = "/")
+    public ArrayList<Coffee> CoffeeApi() {
+        return coffeeService.getAllCoffees();
+    }
+
     @GetMapping(value = "/stats")
-    public ArrayList<Coffee> statsApi() {
+    public ArrayList<Coffee> StatsApi() {
         return coffeeService.getAllCoffeesSortedDesc();
     }
 
